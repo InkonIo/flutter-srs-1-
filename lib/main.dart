@@ -5,7 +5,7 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
-  const new({super.key});
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -15,7 +15,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'flutter demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -33,10 +33,31 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
-      ),
-      body: const Center(
-        child: Text('Hello, World!'),
+  backgroundColor: Colors.white,
+  title: const Text(
+    'My First Flutter App',
+    style: TextStyle(
+      fontSize: 24,
+      fontWeight: FontWeight.bold,
+      color: Colors.black,
+    ),
+  ),
+),
+      body: Center(
+        child: Container(
+          height: 100,
+          width: 200,
+          color: const Color.fromARGB(255, 199, 98, 132),
+          child: const Center(
+            child: Text(
+              'Hello, Flutter!',
+              style: TextStyle(
+                fontSize: 24,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

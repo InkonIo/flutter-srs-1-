@@ -4,58 +4,102 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'flutter demo',
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      title: 'Lab 3: Layout Basics',
+      home: const LayoutBasicsScreen(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+class LayoutBasicsScreen extends StatelessWidget {
+  const LayoutBasicsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-  backgroundColor: Colors.white,
-  title: const Text(
-    'My First Flutter App',
-    style: TextStyle(
-      fontSize: 24,
-      fontWeight: FontWeight.bold,
-      color: Colors.black,
-    ),
-  ),
-),
-      body: Center(
-        child: Container(
-          height: 100,
-          width: 200,
-          color: Colors.blue,
-          child: const Center(
-            child: Text(
-              'Hello, Flutter!',
-              style: TextStyle(
-                fontSize: 24,
-                color: Colors.white,
-              ),
-            ),
+        title: const Text(
+          'Lab 3: Layout Basics',
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
           ),
         ),
+        backgroundColor: Colors.teal,
       ),
-    );
+      backgroundColor: Colors.red,
+
+      body: 
+        Column(
+          children: [
+
+            // Первый контейнер
+            Container(
+              width: double.infinity,
+              
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    offset: const Offset(2, 2),
+                    blurRadius: 6,
+                    color: Colors.black.withOpacity(0.2),
+                  ),
+                ],
+              ),
+              child: const Text(
+                'Welcome to Flutter!',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 16),
+
+            // Второй контейнер
+            Container(
+              padding: const EdgeInsets.fromLTRB(20, 12, 20, 12),
+              decoration: BoxDecoration(
+                color: Colors.green,
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(
+                  color: Colors.white,
+                  width: 2,
+                ),
+              ),
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Left Text',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+                  ),
+                  Text(
+                    'Right Text',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
   }
 }

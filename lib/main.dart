@@ -16,9 +16,6 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'flutter demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -47,7 +44,7 @@ class MyHomePage extends StatelessWidget {
         child: Container(
           height: 100,
           width: 200,
-          color: const Color.fromARGB(255, 199, 98, 132),
+          color: Colors.blue,
           child: const Center(
             child: Text(
               'Hello, Flutter!',
